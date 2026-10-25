@@ -1,0 +1,13 @@
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<app-scroll-progress />
+<app-navbar [profile]="portfolio.profile" />
+<main id="main-content">
+  <app-hero [profile]="portfolio.profile" />
+  <app-about [profile]="portfolio.profile" />
+  <app-impact-highlights [highlights]="portfolio.highlights" />
+  <app-experience [experience]="portfolio.experience" />
+  <app-initiatives [initiatives]="portfolio.initiatives" />
+  <app-skills [skillGroups]="portfolio.skills" />
+  <app-contact [profile]="portfolio.profile" [contact]="portfolio.contact" [enquiryForm]="portfolio.enquiryForm" />
+</main>
+<app-footer [profile]="portfolio.profile" [contact]="portfolio.contact" />

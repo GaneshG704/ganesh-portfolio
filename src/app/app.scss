@@ -1,0 +1,4 @@
+:host { display: block; min-height: 100dvh; overflow: clip; }
+main { position: relative; }
+.skip-link { background: var(--accent-strong); border-radius: 0 0 .5rem .5rem; color: #05111d; font-weight: 700; left: 1rem; padding: .75rem 1rem; position: fixed; top: -4rem; transition: top 160ms ease; z-index: 20; }
+.skip-link:focus { top: 0; }

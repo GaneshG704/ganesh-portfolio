@@ -1,0 +1,10 @@
+<section class="skills" id="skills" aria-labelledby="skills-title">
+  <div class="skills-shell">
+    <div class="skills-heading" appReveal><div class="section-label">05 / Technical skills</div><h2 id="skills-title">A practical toolkit for enterprise software delivery.</h2><p>Technologies and tools used across backend services, web interfaces, data work, cloud platforms, and delivery workflows.</p></div>
+    <div class="skills-grid">
+      @for (group of skillGroups(); track group.title) {
+        <section class="skill-group" appReveal [appRevealDelay]="$index * 70" [attr.aria-label]="group.title + ' skills'"><h3>{{ group.title }}</h3><ul>@for (skill of group.skills; track skill) { <li>{{ skill }}</li> }</ul></section>
+      }
+    </div>
+  </div>
+</section>

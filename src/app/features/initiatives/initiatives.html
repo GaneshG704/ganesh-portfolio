@@ -1,0 +1,14 @@
+<section class="initiatives" id="initiatives" aria-labelledby="initiatives-title">
+  <div class="initiatives-shell">
+    <div class="initiatives-heading" appReveal><div class="section-label">04 / Selected enterprise initiatives</div><h2 id="initiatives-title">Work designed for dependable enterprise operations.</h2><p>Selected initiatives are described at a safe, high level without client names, proprietary architecture, or implementation details.</p></div>
+    <div class="initiative-grid">
+      @for (initiative of initiatives(); track initiative.title) {
+        <article class="initiative-card" appReveal [appRevealDelay]="$index * 70">
+          <h3>{{ initiative.title }}</h3>
+          <dl><div><dt>Context</dt><dd>{{ initiative.context }}</dd></div><div><dt>Contribution</dt><dd>{{ initiative.contribution }}</dd></div>@if (initiative.outcome) { <div class="outcome"><dt>Verified outcome</dt><dd>{{ initiative.outcome }}</dd></div> }</dl>
+          <ul aria-label="Technologies used">@for (technology of initiative.technologies; track technology) { <li>{{ technology }}</li> }</ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>

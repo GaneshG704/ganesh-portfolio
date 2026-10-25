@@ -1,0 +1,59 @@
+<section class="enquiry-form" aria-labelledby="enquiry-title">
+  <div class="enquiry-intro">
+    <h3 id="enquiry-title">{{ config().heading }}</h3>
+    <p>{{ config().description }}</p>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <div class="form-grid">
+      <div class="field">
+        <label for="enquiry-name">Name <span aria-hidden="true">*</span></label>
+        <input id="enquiry-name" name="name" type="text" autocomplete="name" formControlName="name" required [attr.aria-invalid]="showError(form.controls.name)" [attr.aria-describedby]="showError(form.controls.name) ? 'enquiry-name-error' : null" />
+        @if (showError(form.controls.name)) { <p class="field-error" id="enquiry-name-error">Enter your name.</p> }
+      </div>
+
+      <div class="field">
+        <label for="enquiry-email">Email <span aria-hidden="true">*</span></label>
+        <input id="enquiry-email" name="email" type="email" autocomplete="email" formControlName="email" required [attr.aria-invalid]="showError(form.controls.email)" [attr.aria-describedby]="showError(form.controls.email) ? 'enquiry-email-error' : null" />
+        @if (showError(form.controls.email)) { <p class="field-error" id="enquiry-email-error">Enter a valid email address.</p> }
+      </div>
+
+      <div class="field">
+        <label for="enquiry-type">Enquiry type <span aria-hidden="true">*</span></label>
+        <select id="enquiry-type" name="enquiryType" formControlName="enquiryType" required [attr.aria-invalid]="showError(form.controls.enquiryType)" [attr.aria-describedby]="showError(form.controls.enquiryType) ? 'enquiry-type-error' : null">
+          <option value="" disabled>Select an option</option>
+          @for (type of config().enquiryTypes; track type.value) { <option [value]="type.value">{{ type.label }}</option> }
+        </select>
+        @if (showError(form.controls.enquiryType)) { <p class="field-error" id="enquiry-type-error">Choose an enquiry type.</p> }
+      </div>
+
+      <div class="field">
+        <label for="enquiry-company">Company <span class="optional">Optional</span></label>
+        <input id="enquiry-company" name="company" type="text" autocomplete="organization" formControlName="company" [attr.aria-invalid]="showError(form.controls.company)" [attr.aria-describedby]="showError(form.controls.company) ? 'enquiry-company-error' : null" />
+        @if (showError(form.controls.company)) { <p class="field-error" id="enquiry-company-error">Company name must be 160 characters or fewer.</p> }
+      </div>
+    </div>
+
+    <div class="field message-field">
+      <label for="enquiry-message">Message <span aria-hidden="true">*</span></label>
+      <textarea id="enquiry-message" name="message" rows="6" formControlName="message" required [attr.aria-invalid]="showError(form.controls.message)" [attr.aria-describedby]="showError(form.controls.message) ? 'enquiry-message-error' : null"></textarea>
+      @if (showError(form.controls.message)) { <p class="field-error" id="enquiry-message-error">Enter a message of up to 3,000 characters.</p> }
+    </div>
+
+    <div class="honeypot" aria-hidden="true">
+      <label for="enquiry-website">Website</label>
+      <input id="enquiry-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off" formControlName="_gotcha" />
+    </div>
+
+    <p class="privacy-notice">
+      {{ config().privacyNotice }}
+      @if (config().privacyUrl; as privacyUrl) { <a [href]="privacyUrl" target="_blank" rel="noopener noreferrer">Read the privacy policy<span class="screen-reader-text"> (opens in a new tab)</span></a> }
+    </p>
+
+    @if (submissionState() === 'submitting') { <p class="form-status" aria-live="polite">Sending your enquiry…</p> }
+    @if (submissionState() === 'success') { <p class="form-status form-status-success" aria-live="polite">{{ config().successMessage }}</p> }
+    @if (submissionState() === 'error') { <p class="form-status form-status-error" aria-live="polite">{{ config().errorMessage }}</p> }
+
+    <button class="submit-button" type="submit" [disabled]="submissionState() === 'submitting'">{{ config().submitLabel }}</button>
+  </form>
+</section>

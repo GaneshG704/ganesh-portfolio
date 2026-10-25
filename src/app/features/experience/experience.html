@@ -1,0 +1,18 @@
+<section class="experience" id="experience" aria-labelledby="experience-title">
+  <div class="experience-shell">
+    <div class="section-label">03 / Professional experience</div>
+    <div class="experience-intro" appReveal>
+      <div><h2 id="experience-title">Enterprise delivery across modernization, cloud, and reliability.</h2><p>{{ experience().summary }}</p></div>
+      <p class="tenure">{{ experience().tenure }}</p>
+    </div>
+    <article class="experience-card" appReveal [appRevealDelay]="80">
+      <div class="experience-marker" aria-hidden="true"><span></span></div>
+      <div class="role-summary"><p class="dates">{{ experience().dates }}</p><h3>{{ experience().role }}</h3><p class="company">{{ experience().company }}</p></div>
+      <div class="responsibilities" aria-label="Responsibilities">
+        @for (group of experience().responsibilities; track group.title) {
+          <section class="responsibility"><h4>{{ group.title }}</h4><p>{{ group.description }}</p></section>
+        }
+      </div>
+    </article>
+  </div>
+</section>

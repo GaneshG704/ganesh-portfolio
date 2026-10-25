@@ -1,0 +1,11 @@
+<header class="site-header">
+  <nav aria-label="Primary navigation" class="nav-shell">
+    <a class="brand" href="#top" aria-label="Ganesh Gathiya home"><span aria-hidden="true" class="brand-mark">GG</span><span>{{ profile().name }}</span></a>
+    <div class="nav-links">
+      @for (item of navItems; track item.id) {
+        <a [href]="'#' + item.id" [class.is-active]="activeSection() === item.id" [attr.aria-current]="activeSection() === item.id ? 'location' : null" (click)="setActiveSection(item.id)">{{ item.label }}</a>
+      }
+    </div>
+    @if (profile().linkedInUrl; as linkedInUrl) { <a class="linkedin-link" [href]="linkedInUrl" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a> }
+  </nav>
+</header>

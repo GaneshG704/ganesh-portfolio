@@ -1,0 +1,28 @@
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="contact-shell">
+    <div class="section-label">06 / Contact</div>
+    <div class="contact-content">
+      <div class="contact-intro">
+        <h2 id="contact-title">Let’s connect professionally.</h2>
+        <p>For professional opportunities and relevant conversations, reach out through the configured channels below.</p>
+        @if (googleFormsUrl(); as formUrl) {
+          <section class="external-enquiry" aria-labelledby="enquiry-title">
+            <h3 id="enquiry-title">{{ enquiryForm().heading }}</h3>
+            <p>{{ enquiryForm().description }}</p>
+            <a class="enquiry-cta" [href]="formUrl" target="_blank" rel="noopener noreferrer">
+              {{ enquiryForm().externalFormCtaLabel }} <span aria-hidden="true">↗</span>
+              <span class="screen-reader-text"> (opens in a new tab)</span>
+            </a>
+            <p class="enquiry-privacy">{{ enquiryForm().privacyNotice }}</p>
+          </section>
+        }
+      </div>
+      <address class="contact-links">
+        @if (contact().email; as email) { <a class="contact-link primary-link" [href]="'mailto:' + email"><span>Email</span><strong>{{ email }}</strong></a> }
+        @if (profile().linkedInUrl; as linkedInUrl) { <a class="contact-link" [href]="linkedInUrl" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><strong>View profile <span aria-hidden="true">↗</span></strong></a> }
+        @if (contact().githubUrl; as githubUrl) { <a class="contact-link" [href]="githubUrl" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong>View profile <span aria-hidden="true">↗</span></strong></a> }
+        @if (contact().instagramUrl; as instagramUrl) { <a class="contact-link" [href]="instagramUrl" target="_blank" rel="noopener noreferrer"><span>Instagram</span><strong>View profile <span aria-hidden="true">↗</span></strong></a> }
+      </address>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+.site-header { backdrop-filter: blur(16px); background: rgba(7,17,31,.76); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+.nav-shell { align-items: center; display: flex; gap: 1.25rem; justify-content: space-between; margin: 0 auto; max-width: var(--max-width); min-height: 4.75rem; padding: 0 1.5rem; }
+.brand, .nav-links, .linkedin-link { align-items: center; display: flex; }
+.brand { font-size: .92rem; font-weight: 700; gap: .65rem; letter-spacing: -.01em; text-decoration: none; }
+.brand-mark { align-items: center; background: linear-gradient(135deg, var(--accent-strong), var(--accent)); border-radius: .55rem; color: #06111e; display: inline-flex; font-size: .7rem; height: 2rem; justify-content: center; letter-spacing: -.06em; width: 2rem; }
+.nav-links { gap: clamp(.8rem,1.7vw,1.5rem); margin-left: auto; min-width: 0; overflow-x: auto; scrollbar-width: none; }.nav-links::-webkit-scrollbar { display: none; }.nav-links a { position: relative; white-space: nowrap; }
+.nav-links a, .linkedin-link { color: var(--text-muted); font-size: .88rem; font-weight: 600; text-decoration: none; transition: color 160ms ease; }
+.nav-links a::after { background: var(--accent-strong); border-radius: 999px; bottom: -.55rem; content: ''; height: 2px; left: 0; position: absolute; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; width: 100%; }.nav-links a.is-active { color: var(--text); }.nav-links a.is-active::after { transform: scaleX(1); }
+@media (hover: hover) { .nav-links a:hover, .linkedin-link:hover { color: var(--text); } }
+.linkedin-link { background: var(--accent-dim); border: 1px solid rgba(128,196,255,.3); border-radius: 999px; color: var(--accent-strong); gap: .35rem; padding: .52rem .8rem; }
+@media (max-width: 48rem) { .nav-shell { flex-wrap: wrap; gap: .7rem 1rem; min-height: auto; padding: .75rem 1rem; }.nav-links { flex-basis: 100%; margin-left: 0; order: 3; padding-bottom: .15rem; }.linkedin-link { margin-left: auto; } }
+@media (max-width: 30rem) { .brand > span:last-child { font-size: .82rem; }.linkedin-link { font-size: .8rem; padding: .45rem .65rem; } }
