@@ -1,0 +1,11 @@
+# Ganesh Gathiya
+
+Personal portfolio of Ganesh Gathiya, a Full Stack Java Developer focused on enterprise applications, Java, Spring Boot, Spring Batch, REST APIs, microservices, Angular, and cloud-native systems.
+
+Portfolio: https://erganesh-portfolio.netlify.app/
+
+## Verified profile links
+
+- LinkedIn: https://www.linkedin.com/in/ganeshg05/
+- GitHub: https://github.com/GaneshG704
+- Instagram: https://www.instagram.com/er_ganesh05/
